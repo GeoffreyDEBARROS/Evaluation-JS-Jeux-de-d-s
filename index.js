@@ -1,4 +1,63 @@
-// Change player name
+// New game // Reset
+newGame.addEventListener("click", () => {
+  playerName1.innerHTML = "player 1";
+  playerName2.innerHTML = "player 2";
+  playerScore1.innerHTML = 0;
+  playerScore2.innerHTML = 0;
+  currentScore1.innerHTML = 0;
+  currentScore2.innerHTML = 0;
+  total = 0;
+});
+
+let playerNumber = [1, 2];
+let randomPlayer = Math.floor(Math.random() * 2); // Random player start
+let currentId = `currentScore${playerNumber[randomPlayer]}`;
+let current = document.getElementById(currentId);
+let scoreId = `playerScore${playerNumber[randomPlayer]}`;
+let score = document.getElementById(scoreId);
+
+// Roll dice // Add score // reset if 1 //
+let total = 0;
+const diceRoll = () => {
+  let roll = Math.floor(Math.random() * 6) + 1;
+  dice.src = `./img/dice${roll}.svg`; //Set dice img
+  if (roll != 1) {
+    total += roll;
+  } else {
+    total = 0;
+    current.innerHTML = total;
+    randomPlayer = (randomPlayer + 1) % playerNumber.length;
+    currentId = `currentScore${playerNumber[randomPlayer]}`;
+    current = document.getElementById(currentId);
+    scoreId = `playerScore${playerNumber[randomPlayer]}`;
+    score = document.getElementById(scoreId);
+  }
+  current.innerHTML = total;
+};
+// Hold current score on global score
+let globalScore = 0;
+const holdCurrent = () => {
+  globalScore += total;
+  score.innerHTML = globalScore;
+  total = 0;
+  current.innerHTML = 0;
+  randomPlayer = (randomPlayer + 1) % playerNumber.length;
+  currentId = `currentScore${playerNumber[randomPlayer]}`;
+  current = document.getElementById(currentId);
+  scoreId = `playerScore${playerNumber[randomPlayer]}`;
+  score = document.getElementById(scoreId);
+};
+
+// EventListener //
+
+// Dice roll
+roll.addEventListener("click", diceRoll);
+// Hold current click
+hold.addEventListener("click", () => {
+  holdCurrent();
+});
+
+// Change players names
 playerName1.addEventListener("click", () => {
   let pseudo1 = prompt("Enter player one name");
   playerName1.innerHTML = pseudo1;
@@ -16,13 +75,3 @@ playerName2.addEventListener("click", () => {
     playerName2.innerHTML = "player 2";
   }
 });
-
-// Roll dice
-let diceRoll = () => {
-  let diceNumber = Math.floor(Math.random() * 6 + 1);
-  dice.src = `./img/dice${diceNumber}.svg`;
-  return diceNumber;
-};
-
-
-roll.addEventListener("click", diceRoll);
