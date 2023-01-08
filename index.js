@@ -6,6 +6,7 @@ newGame.addEventListener("click", () => {
   playerScore2.innerHTML = 0;
   currentScore1.innerHTML = 0;
   currentScore2.innerHTML = 0;
+  globalScore = [0, 0];
   total = 0;
 });
 
@@ -35,12 +36,15 @@ const diceRoll = () => {
   current.innerHTML = total;
 };
 // Hold current score on global score
-let globalScore = 0;
+let globalScore = [0, 0];
 const holdCurrent = () => {
-  globalScore += total;
-  score.innerHTML = globalScore;
+  globalScore[randomPlayer] += total;
   total = 0;
+  score.innerHTML = globalScore[randomPlayer];
   current.innerHTML = 0;
+  if (globalScore[randomPlayer] >= 20) {
+    score.innerHTML = "victory";
+  }
   randomPlayer = (randomPlayer + 1) % playerNumber.length;
   currentId = `currentScore${playerNumber[randomPlayer]}`;
   current = document.getElementById(currentId);
@@ -53,9 +57,7 @@ const holdCurrent = () => {
 // Dice roll
 roll.addEventListener("click", diceRoll);
 // Hold current click
-hold.addEventListener("click", () => {
-  holdCurrent();
-});
+hold.addEventListener("click", holdCurrent);
 
 // Change players names
 playerName1.addEventListener("click", () => {
