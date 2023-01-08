@@ -95,6 +95,15 @@ button {
     font-size: 2.5rem;
     cursor: pointer;
 }
+.playerName:hover::before {
+    content: "Change player name";
+    position: absolute;
+    top: 200px;
+    transform: translateX(50px);
+    font-size: 0.6rem;
+    letter-spacing: 0px;
+    color: rgb(157, 17, 17);
+}
 .score {
     font-size: 5rem;
     color: rgb(157, 17, 17);

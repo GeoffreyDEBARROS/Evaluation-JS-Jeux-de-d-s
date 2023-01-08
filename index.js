@@ -10,6 +10,7 @@ newGame.addEventListener("click", () => {
   total = 0;
 });
 
+// set player swap
 let playerNumber = [1, 2];
 let randomPlayer = Math.floor(Math.random() * 2); // Random player start
 let currentId = `currentScore${playerNumber[randomPlayer]}`;
@@ -27,6 +28,7 @@ const diceRoll = () => {
   } else {
     total = 0;
     current.innerHTML = total;
+    // Change player
     randomPlayer = (randomPlayer + 1) % playerNumber.length;
     currentId = `currentScore${playerNumber[randomPlayer]}`;
     current = document.getElementById(currentId);
@@ -36,15 +38,16 @@ const diceRoll = () => {
   current.innerHTML = total;
 };
 // Hold current score on global score
-let globalScore = [0, 0];
+let globalScore = [0, 0]; // Set global at 0 for the two players
 const holdCurrent = () => {
   globalScore[randomPlayer] += total;
   total = 0;
   score.innerHTML = globalScore[randomPlayer];
   current.innerHTML = 0;
-  if (globalScore[randomPlayer] >= 20) {
+  if (globalScore[randomPlayer] >= 20) { // set victory condition
     score.innerHTML = "victory";
   }
+  // change player
   randomPlayer = (randomPlayer + 1) % playerNumber.length;
   currentId = `currentScore${playerNumber[randomPlayer]}`;
   current = document.getElementById(currentId);
