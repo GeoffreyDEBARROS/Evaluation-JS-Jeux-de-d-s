@@ -7,6 +7,7 @@
     box-sizing: border-box;
     text-transform: uppercase;
     letter-spacing: 5px;
+    user-select: none;
 }
 body {
     height: 100vh;
@@ -40,6 +41,9 @@ button {
     top: 40px;
     transform: translateX(-50%);  
 }
+#newGame:active {
+    transform: translateX(-50%) scale(0.95);
+}
 #newGame::before{
     content:url(./img/newGame.svg);
 }
@@ -54,6 +58,9 @@ button {
     transform: translateX(-50%);
     bottom: 295px;
 }
+#roll:active {
+    transform: translateX(-50%) scale(0.95);
+}
 #roll::before {
     content:url(./img/roll.svg);
     width: 25px;
@@ -63,6 +70,9 @@ button {
     left: 50%;
     transform: translateX(-50%);
     bottom: 210px;
+}
+#hold:active {
+    transform: translateX(-50%) scale(0.95);
 }
 #hold::before {
     content: url(./img/hold.svg);
@@ -119,7 +129,67 @@ button {
     color: #D5CEA3;
     border-radius: 10px;
 }
-#currentScore {
-    font-size: 2rem;
+.currentContainer span {
+    font-size: 1.5rem;
     color: rgb(157, 17, 17);
+}
+
+/* Media Queries */
+
+@media screen and (max-width : 840px) {
+    .dice {
+        top: 340px;
+    }
+   .dice img {
+    height: 70px;
+   }
+   .currentContainer {
+    position: absolute;
+    bottom: 70px;
+   }
+   .topContainer {
+    position: absolute;
+    top: 180px;
+   }
+}
+
+@media screen and (max-width : 540px) {
+    .playerName {
+        font-size: 1.5rem;
+    }
+    .score {
+        font-size: 3rem;
+    }
+    button {
+        font-size: 0.9rem;
+    }
+    button::before {
+        display: none;
+    }
+    .currentContainer {
+        width: 100px;
+        height: 60px;
+    }
+    .currentContainer p {
+        font-size: 0.7rem;
+    }
+}
+
+@media screen and (max-width : 320px) {
+    .playerName {
+        font-size: 1rem;
+    }
+    .score {
+        font-size: 2rem;
+    }
+    .currentContainer {
+        width: 80px;
+        height: 50px;
+    }
+    .currentContainer p {
+        font-size: 0.5rem;
+    }
+    .currentContainer span {
+        font-size: 1rem;
+    }
 }

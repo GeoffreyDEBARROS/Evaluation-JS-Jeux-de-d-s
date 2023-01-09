@@ -1,5 +1,5 @@
 // New game // Reset
-newGame.addEventListener("click", () => {
+const resetGame = () => {
   playerName1.innerHTML = "player 1";
   playerName2.innerHTML = "player 2";
   playerScore1.innerHTML = 0;
@@ -8,7 +8,7 @@ newGame.addEventListener("click", () => {
   currentScore2.innerHTML = 0;
   globalScore = [0, 0];
   total = 0;
-});
+};
 
 // set player swap
 let playerNumber = [1, 2];
@@ -44,8 +44,10 @@ const holdCurrent = () => {
   total = 0;
   score.innerHTML = globalScore[randomPlayer];
   current.innerHTML = 0;
-  if (globalScore[randomPlayer] >= 20) { // set victory condition
+  // set victory condition
+  if (globalScore[randomPlayer] >= 20) {
     score.innerHTML = "victory";
+    setTimeout(resetGame, 3000);
   }
   // change player
   randomPlayer = (randomPlayer + 1) % playerNumber.length;
@@ -61,7 +63,8 @@ const holdCurrent = () => {
 roll.addEventListener("click", diceRoll);
 // Hold current click
 hold.addEventListener("click", holdCurrent);
-
+// New game click
+newGame.addEventListener("click", resetGame);
 // Change players names
 playerName1.addEventListener("click", () => {
   let pseudo1 = prompt("Enter player one name");
