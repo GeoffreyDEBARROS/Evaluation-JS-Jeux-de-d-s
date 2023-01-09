@@ -1,3 +1,7 @@
+const diceSound = new Audio("/audios/diceSound.mp3");
+const errorSound = new Audio("/audios/errorSound.mp3");
+const victorySound = new Audio("/audios/victorySound.wav");
+
 // New game // Reset
 const resetGame = () => {
   playerName1.innerHTML = "player 1";
@@ -24,8 +28,20 @@ const diceRoll = () => {
   let roll = Math.floor(Math.random() * 6) + 1;
   dice.src = `./img/dice${roll}.svg`; //Set dice img
   if (roll != 1) {
+    // Dice sound when roll is not one
+    diceSound.play();
+    setTimeout(function () {
+      diceSound.pause();
+      diceSound.currentTime = 0;
+    }, 500);
     total += roll;
   } else {
+    // Error sound when roll one
+    errorSound.play();
+    setTimeout(function () {
+      errorSound.pause();
+      errorSound.currentTime = 0;
+    }, 200);
     total = 0;
     current.innerHTML = total;
     // Change player
@@ -47,6 +63,11 @@ const holdCurrent = () => {
   // set victory condition
   if (globalScore[randomPlayer] >= 20) {
     score.innerHTML = "victory";
+    victorySound.play();
+    setTimeout(function () {
+      victorySound.pause();
+      victorySound.currentTime = 0;
+    }, 1700);
     setTimeout(resetGame, 3000);
   }
   // change player
@@ -60,7 +81,9 @@ const holdCurrent = () => {
 // EventListener //
 
 // Dice roll
-roll.addEventListener("click", diceRoll);
+roll.addEventListener("click", () => {
+  diceRoll();
+});
 // Hold current click
 hold.addEventListener("click", holdCurrent);
 // New game click
