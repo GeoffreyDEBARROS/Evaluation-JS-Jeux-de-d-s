@@ -67,6 +67,8 @@ h2 {
     left: 50%;
     top: 40px;
     transform: translateX(-50%);  
+    background-color: red;
+    color: yellow;
 }
 #newGame:active {
     transform: translateX(-50%) scale(0.95);
