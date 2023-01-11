@@ -61,7 +61,7 @@ const holdCurrent = () => {
   score.innerHTML = globalScore[randomPlayer];
   current.innerHTML = 0;
   // set victory condition
-  if (globalScore[randomPlayer] >= 20) {
+  if (globalScore[randomPlayer] >= 100) {
     score.innerHTML = "victory";
     victorySound.play();
     setTimeout(function () {

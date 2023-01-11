@@ -249,6 +249,12 @@ h2 {
     .score {
         font-size: 1.5rem;
     }
+    #roll {
+       bottom: 450px;
+    }
+    #hold {
+        bottom: 200px;
+    }
     .currentContainer {
         width: 80px;
         height: 50px;
