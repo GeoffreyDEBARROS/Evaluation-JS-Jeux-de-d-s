@@ -67,8 +67,6 @@ h2 {
     left: 50%;
     top: 40px;
     transform: translateX(-50%);  
-    background-color: red;
-    color: yellow;
 }
 #newGame:active {
     transform: translateX(-50%) scale(0.95);
@@ -218,6 +216,12 @@ h2 {
     .score {
         font-size: 1.8rem;
     }
+    #roll {
+        bottom: 450px;
+     }
+     #hold {
+         bottom: 200px;
+     }
     button {
         font-size: 0.9rem;
     }

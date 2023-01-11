@@ -1,6 +1,7 @@
 const diceSound = new Audio("/audios/diceSound.mp3");
 const errorSound = new Audio("/audios/errorSound.mp3");
 const victorySound = new Audio("/audios/victorySound.wav");
+const gameContainer = document.querySelector(".gameContainer");
 
 // New game // Reset
 const resetGame = () => {
