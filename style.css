@@ -5,7 +5,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    text-transform: uppercase;
     letter-spacing: 5px;
     user-select: none;
 }
@@ -35,6 +34,34 @@ button {
     font-size: 1.2rem;
     font-weight: bold;
     display: flex;
+    text-transform: uppercase;
+}
+#rules {
+    left: 10px;
+    top: 10px;
+    font-size: 0.9rem;
+}
+#rulesModal {
+    position: absolute;
+    width: 700px;
+    left: 50%;
+    top: 50%;
+    padding: 15px;
+    font-weight: bold;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+    background: #1a120b2b;
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    line-height: 25px;
+    display: none;
+}
+h2 {
+    text-align: center;
+    padding: 20px;
+}
+#rules:active {
+    transform: scale(0.95);
 }
 #newGame {
     left: 50%;
@@ -92,6 +119,7 @@ button {
     justify-content: space-evenly;
     flex-direction: column;
     align-items: center;
+    text-transform: uppercase;
 }
 .topContainer {
     height: 100px;
@@ -108,7 +136,7 @@ button {
 .playerName:hover::before {
     content: "Change player name";
     position: absolute;
-    top: 180px;
+    top: 200px;
     transform: translateX(50px);
     font-size: 0.6rem;
     letter-spacing: 0px;
@@ -133,6 +161,14 @@ button {
     font-size: 1.5rem;
     color: rgb(157, 17, 17);
 }
+#myName {
+    position: absolute;
+    color: rgb(6, 0, 1);
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+    bottom: 40px;
+    right: 50px;
+}
 
 /* Media Queries */
 
@@ -152,20 +188,33 @@ button {
     top: 180px;
    }
    .playerName:hover::before{
-    top: 25px;
+    top: -15px;
    }
+   .score {
+    font-size: 3rem;
+   }
+   #myName {
+    font-size: 0.6rem;
+    bottom: 30px;
+    right: 30px;
+   }
+}
+
+@media screen and (max-width : 745px) {
+    #rulesModal {
+        width: 500px;
+    }
 }
 
 @media screen and (max-width : 540px) {
     .playerName {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
     .playerName:hover::before{
-        top: 35px;
-        font-size: 0.5rem;
+        display: none;
        }
     .score {
-        font-size: 3rem;
+        font-size: 1.8rem;
     }
     button {
         font-size: 0.9rem;
@@ -180,6 +229,14 @@ button {
     .currentContainer p {
         font-size: 0.7rem;
     }
+    #rulesModal {
+        width: 300px;
+        font-size: 0.8rem;
+        line-height: 20px;
+    }
+    h2 {
+        padding: 10px;
+    }
 }
 
 @media screen and (max-width : 320px) {
@@ -190,7 +247,7 @@ button {
         display: none;
        }
     .score {
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
     .currentContainer {
         width: 80px;
@@ -202,4 +259,17 @@ button {
     .currentContainer span {
         font-size: 1rem;
     }
+    #rulesModal {
+        width: 250px;
+        font-size: 0.8rem;
+        line-height: 18px;
+    }
+    h2 {
+        padding: 5px;
+    }    
+    #myName {
+        font-size: 0.5rem;
+        bottom: 25px;
+        right: 25px;
+       }
 }

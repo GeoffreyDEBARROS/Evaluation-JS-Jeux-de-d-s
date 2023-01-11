@@ -3,8 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="robots" content="index"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <meta name="description" content="Welcome to Dice Game, reach 100 and win the game !"/>
+    <meta name="keywords" content="dice, game"/>
+    <title>Dice Game</title>
     <link rel="stylesheet" href="style.css" />
   </head>
 
@@ -12,6 +15,12 @@
     
     <main>
       <div class="gameContainer">
+        <button id="rules">Rules</button>
+        <div id="rulesModal">  <!-- Modal on display none until click on rules btn -->
+          <h2>Welcome to Dice Game</h2>
+          <p>The rules of the game are simple, the first player to reach 100 wins ! <br>For this, the players roll the dice and accumulate points which are stored in the current score. Press hold to pass these points into the overall score and pass the hand to the other player. But be careful, if the dice lands on 1, all the points present in the current score disappear, and it's the other player's turn. <br> Reach 100 points and it's victory ! <br>All you have to do is fill in your nickname and go! The starting player is chosen randomly. <br> Good luck and have fun !</p>
+        </div>
+
         <button id="newGame"></span>New game</button>
         <div class="dice"><img id="dice" src="./img/dice3.svg" alt="Le dé" height="100px"></div>
         <button id="roll">Roll dice</button>
@@ -40,6 +49,7 @@
         </div>
 
       </div>
+      <span id="myName">DE BARROS Geoffrey</span>
     </main>
 
     <script src="./index.js"></script>

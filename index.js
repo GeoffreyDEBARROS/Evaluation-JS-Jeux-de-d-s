@@ -88,6 +88,15 @@ roll.addEventListener("click", () => {
 hold.addEventListener("click", holdCurrent);
 // New game click
 newGame.addEventListener("click", resetGame);
+// Rules click
+rules.addEventListener("click", () => {
+  if (rulesModal.style.display === "none") {
+    rulesModal.style.display = "block";
+  } else {
+    rulesModal.style.display = "none";
+  }
+});
+
 // Change players names
 playerName1.addEventListener("click", () => {
   let pseudo1 = prompt("Enter player one name");
@@ -97,7 +106,6 @@ playerName1.addEventListener("click", () => {
     playerName1.innerHTML = "player 1";
   }
 });
-
 playerName2.addEventListener("click", () => {
   let pseudo2 = prompt("Enter player two name");
   playerName2.innerHTML = pseudo2;
